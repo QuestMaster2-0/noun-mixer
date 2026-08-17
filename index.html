@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Collective Noun Mixer</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 100px; background-color: #f4f4f9; color: #333; }
+        .card { background: white; max-width: 450px; margin: auto; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h1 { font-size: 24px; margin-bottom: 20px; }
+        #result { font-size: 22px; font-weight: bold; color: #0066cc; margin: 20px 0; min-height: 60px; }
+        button { background-color: #0066cc; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #0055b3; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Silly Noun Mixer</h1>
+        <div id="result">Click the button to mix them up!</div>
+        <button onclick="mixNouns()">Mix Noun</button>
+    </div>
+
+    <script>
+        // List of group words
+        const groups = [
+            "pride",
+            "murder",
+            "gaggle",
+            "mischief",
+            "sleuth",
+            "parcel",
+            "tower",
+            "destruction",
+            "pod",
+            "pandemonium",
+	"parliament",
+	"functionality",
+	"bristle",
+	"individuality",
+	"washing machine",
+	"umbrella",
+	"quotidian",
+	"magic lamp",
+	"limbo",
+	"legislation",
+	"mutter",
+	"waveform",
+	"wheelhouse",
+	"horse's ass",
+	"hot tub",
+	"plethora",
+	"ghoul",
+	"jumping",
+
+        ];
+
+        // List of animals or objects
+        const items = [
+            "lions",
+            "crows",
+            "geese",
+            "mice",
+            "bears",
+            "penguins",
+            "giraffes",
+            "wildcats",
+            "whales",
+            "parrots",
+	"paintbrushes",
+	"washing machines",
+	"crayons",
+	"pencils",
+	"quills",
+	"eggs",
+	"yoyos",
+	"houses",
+	"ponies",
+	"horses",
+	"unicorns",
+	"wombats",
+	"platypuses",
+	"delivery drivers",
+	"books",
+	"vinyls",
+	"mugs",
+	"songs",
+	"words"
+
+        ];
+
+        function getRandomElement(array) {
+            return array[Math.floor(Math.random() * array.length)];
+        }
+
+        function mixNouns() {
+            const randomGroup = getRandomElement(groups);
+            const randomItem = getRandomElement(items);
+            
+            // Check if the group word starts with a vowel for correct grammar (A vs An)
+            const vowels = ['a', 'e', 'i', 'o', 'u'];
+            const startingLetter = randomGroup.charAt(0).toLowerCase();
+            const article = vowels.includes(startingLetter) ? "An" : "A";
+            
+            document.getElementById("result").innerText = `${article} ${randomGroup} of ${randomItem}`;
+        }
+    </script>
+</body>
+</html>
